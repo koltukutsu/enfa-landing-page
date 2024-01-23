@@ -13,35 +13,35 @@ import { myLoader } from "@/utils/all";
 export default function Navbar(props) {
   const leftmenu = [
     {
-      label: "Home",
+      label: "Ana Sayfa",
       href: "/"
     },
     {
-      label: "About",
+      label: "Faaliyet Alanlarımız",
       href: "/about"
     },
-    {
-      label: "Contact",
-      href: "/contact"
-    }
+    // {
+    //   label: "Contact",
+    //   href: "/contact"
+    // }
   ];
 
   const rightmenu = [
     {
-      label: "Archive",
+      label: "Duyuru ve Haberler",
       href: "/archive"
     },
     {
-      label: "Pro Version",
+      label: "İletişim",
       href: "https://stablo-pro.web3templates.com/",
       external: true,
       badge: "new"
     },
-    {
-      label: "Download",
-      href: "https://web3templates.com/templates/stablo-minimal-blog-website-template",
-      external: true
-    }
+    // {
+    //   label: "Download",
+    //   href: "https://web3templates.com/templates/stablo-minimal-blog-website-template",
+    //   external: true
+    // }
   ];
 
   const mobilemenu = [...leftmenu, ...rightmenu];
