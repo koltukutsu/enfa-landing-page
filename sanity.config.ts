@@ -21,8 +21,8 @@ console.log(projectId);
 
 export default defineConfig({
   name: "default",
-  title: "Stablo Template",
-  basePath: "/studio",
+  title: "Enfa Editor",
+  basePath: "/editor",
   projectId: projectId,
   dataset: dataset,
 
