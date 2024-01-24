@@ -20,10 +20,10 @@ export default function Navbar(props) {
       label: "Faaliyet Alanlarımız",
       href: "/about"
     },
-    {
-      label: "Contact",
-      href: "/contact"
-    }
+    // {
+    //   label: "Contact",
+    //   href: "/contact"
+    // }
   ];
 
   const rightmenu = [
@@ -33,15 +33,15 @@ export default function Navbar(props) {
     },
     {
       label: "İletişim",
-      href: "https://stablo-pro.web3templates.com/",
+      href: "/contact",
       external: true,
       badge: "hakkımızda"
     },
-    {
-      label: "Download",
-      href: "https://web3templates.com/templates/stablo-minimal-blog-website-template",
-      external: true
-    }
+    // {
+    //   label: "Download",
+    //   href: "https://web3templates.com/templates/stablo-minimal-blog-website-template",
+    //   external: true
+    // }
   ];
 
   const mobilemenu = [...leftmenu, ...rightmenu];
