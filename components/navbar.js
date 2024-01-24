@@ -34,7 +34,7 @@ export default function Navbar(props) {
     {
       label: "İletişim",
       href: "/contact",
-      external: true,
+      // external: true,
       badge: "hakkımızda"
     },
     // {
