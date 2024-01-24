@@ -35,7 +35,7 @@ export default function Navbar(props) {
       label: "İletişim",
       href: "https://stablo-pro.web3templates.com/",
       external: true,
-      badge: "new"
+      badge: "hakkımızda"
     },
     // {
     //   label: "Download",
