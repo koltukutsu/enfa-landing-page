@@ -29,8 +29,8 @@ export default function Contact({ settings }) {
   const { submit: onSubmit } = useWeb3Forms({
     access_key: apiKey,
     settings: {
-      from_name: "Enfa - Iletisim Formu",
-      subject: "New Contact Message from Stablo Website"
+      from_name: "Enfa - İletişim Formu",
+      subject: "Yeni bir mesajınız var: enfa.org.tr"
     },
     onSuccess: (msg, data) => {
       setIsSuccess(true);
@@ -46,26 +46,27 @@ export default function Contact({ settings }) {
   return (
     <Container>
       <h1 className="mt-2 mb-3 text-3xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl dark:text-white">
-        Hakkimizda
+        Hakkımızda
       </h1>
       <div className="text-center">
-        <p className="text-lg">We are a here to help.</p>
+        <p className="text-lg">Size yardımcı olmak için buradayız.</p>
       </div>
 
       <div className="grid my-10 md:grid-cols-2">
         <div className="my-10">
           <h2 className="text-2xl font-semibold dark:text-white">
-            Enfa ile Iletisime Gecin
+            Enfa ile İletişime Geçin
           </h2>
           <p className="max-w-sm mt-5">
-            Bize bahsetmek istediginiz birseyler mi var?
-            Lutfen bizimle paylasin.
+            Bizimle paylaşmak istediğiniz birşey mi var?
+            Sizi dinliyoruz.
           </p>
 
           <div className="mt-5">
             <div className="flex items-center mt-2 space-x-2 text-dark-600 dark:text-gray-400">
               <MapPinIcon className="w-4 h-4" />
-              <span>Ay-Port Residence, Yenişehir Mah, Osmanlı Blv. D:2A/80, 34912 Pendik/İstanbul</span>
+              <span>Ay-Port Residence, Yenişehir Mah,
+                Osmanlı Blv. D:2A/80, 34912 Pendik/İstanbul</span>
             </div>
             {settings?.email && (
               <div className="flex items-center mt-2 space-x-2 text-dark-600 dark:text-gray-400">

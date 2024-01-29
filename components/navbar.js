@@ -32,10 +32,10 @@ export default function Navbar(props) {
       href: "/archive"
     },
     {
-      label: "İletişim",
+      label: "Hakkımızda",
       href: "/contact",
       // external: true,
-      badge: "hakkımızda"
+      badge: "iletişim"
     },
     // {
     //   label: "Download",
