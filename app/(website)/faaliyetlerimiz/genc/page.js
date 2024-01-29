@@ -1,4 +1,3 @@
-import { getAllAuthors, getSettings } from "@/lib/sanity/client";
 // import Genc from "./genc";
 import FaaliyetlerCommon from "../faaliyetlerCommon";
 const genclerSectionsData = [

@@ -135,7 +135,7 @@ export async function getPaginatedPosts({ limit, pageIndex = 0 }) {
 
 export async function getSocialMediaAccounts() {
   if (client) {
-    return (await client.fetch(socialQuery)) || [];
+    return (await client.fetch(socialQuery, { next: { revalidate: 3600 } })) || [];
   }
   return [];
 }

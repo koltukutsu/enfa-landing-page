@@ -1,4 +1,3 @@
-import { getSettings } from "@/lib/sanity/client";
 import Contact from "./contact";
 
 export default async function ContactPage() {
