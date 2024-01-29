@@ -195,7 +195,7 @@ export default function Navbar(props) {
                           className="w-full px-5 py-2 text-sm font-medium text-gray-600 hover:text-blue-500 dark:text-gray-400"
                           target={item.external ? "_blank" : ""}
                           rel={item.external ? "noopener" : ""}>
-                          {item.label}ads
+                          {item.label}
 
                         </Link>
                       )}
