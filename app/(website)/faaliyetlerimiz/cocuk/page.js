@@ -33,7 +33,8 @@ const cocuklarSectionsData = [
 export default async function AboutPage() {
   // const authors = await getAllAuthors();
   // const settings = await getSettings();
-  return <FaaliyetlerCommon subsectionData={cocuklarSectionsData}/>;
+  const title = "Çocuk"
+  return <FaaliyetlerCommon title = {title} subsectionData={cocuklarSectionsData}/>;
 }
 
 // export const revalidate = 60;

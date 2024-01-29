@@ -32,7 +32,8 @@ const ailelerSectionsData = [
 export default async function AboutPage() {
   // const authors = await getAllAuthors();
   // const settings = await getSettings();
-  return <FaaliyetlerCommon subsectionData={ailelerSectionsData}/>;
+  const title = "Aile";
+  return <FaaliyetlerCommon title={title} subsectionData={ailelerSectionsData}/>;
 }
 
 // export const revalidate = 60;
