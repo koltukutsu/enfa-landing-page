@@ -65,7 +65,7 @@ export default function Contact({ settings }) {
           <div className="mt-5">
             <div className="flex items-center mt-2 space-x-2 text-dark-600 dark:text-gray-400">
               <MapPinIcon className="w-4 h-4" />
-              <span>Istanbul, Istanbul</span>
+              <span>Ay-Port Residence, Yenişehir Mah, Osmanlı Blv. D:2A/80, 34912 Pendik/İstanbul</span>
             </div>
             {settings?.email && (
               <div className="flex items-center mt-2 space-x-2 text-dark-600 dark:text-gray-400">
