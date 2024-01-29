@@ -46,7 +46,7 @@ export default function Contact({ settings }) {
   return (
     <Container>
       <h1 className="mt-2 mb-3 text-3xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl dark:text-white">
-        Hakkımızda
+        İletişim
       </h1>
       <div className="text-center">
         <p className="text-lg">Size yardımcı olmak için buradayız.</p>
@@ -96,7 +96,7 @@ export default function Contact({ settings }) {
             <div className="mb-5">
               <input
                 type="text"
-                placeholder="Full Name"
+                placeholder="İsminiz ve Soyisminiz"
                 autoComplete="false"
                 className={`w-full px-4 py-3 border-2 placeholder:text-gray-800 dark:text-white rounded-md outline-none dark:placeholder:text-gray-200 dark:bg-gray-900   focus:ring-4  ${
                   errors.name
@@ -104,7 +104,7 @@ export default function Contact({ settings }) {
                     : "border-gray-300 focus:border-gray-600 ring-gray-100 dark:border-gray-600 dark:focus:border-white dark:ring-0"
                 }`}
                 {...register("name", {
-                  required: "Full name is required",
+                  required: "İsminizi yazmanız gerekiyor",
                   maxLength: 80
                 })}
               />
@@ -122,7 +122,7 @@ export default function Contact({ settings }) {
               <input
                 id="email_address"
                 type="email"
-                placeholder="Email Address"
+                placeholder="Email Adresiniz"
                 name="email"
                 autoComplete="false"
                 className={`w-full px-4 py-3 border-2 placeholder:text-gray-800 dark:text-white rounded-md outline-none dark:placeholder:text-gray-200 dark:bg-gray-900   focus:ring-4  ${
@@ -131,10 +131,10 @@ export default function Contact({ settings }) {
                     : "border-gray-300 focus:border-gray-600 ring-gray-100 dark:border-gray-600 dark:focus:border-white dark:ring-0"
                 }`}
                 {...register("email", {
-                  required: "Enter your email",
+                  required: "E-mailinizi yazın",
                   pattern: {
                     value: /^\S+@\S+$/i,
-                    message: "Please enter a valid email"
+                    message: "Maalesef E-mailiniz geçerli değil"
                   }
                 })}
               />
@@ -148,14 +148,14 @@ export default function Contact({ settings }) {
             <div className="mb-3">
               <textarea
                 name="message"
-                placeholder="Your Message"
+                placeholder="Mesajınız..."
                 className={`w-full px-4 py-3 border-2 placeholder:text-gray-800 dark:text-white dark:placeholder:text-gray-200 dark:bg-gray-900   rounded-md outline-none  h-36 focus:ring-4  ${
                   errors.message
                     ? "border-red-600 focus:border-red-600 ring-red-100 dark:ring-0"
                     : "border-gray-300 focus:border-gray-600 ring-gray-100 dark:border-gray-600 dark:focus:border-white dark:ring-0"
                 }`}
                 {...register("message", {
-                  required: "Enter your Message"
+                  required: "Emailinizi yazın"
                 })}
               />
               {errors.message && (
@@ -188,19 +188,19 @@ export default function Contact({ settings }) {
                     d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
               ) : (
-                "Send Message"
+                "Mesajınızı Gönderin"
               )}
             </button>
           </form>
 
           {isSubmitSuccessful && isSuccess && (
             <div className="mt-3 text-sm text-center text-green-500">
-              {message || "Success. Message sent successfully"}
+              {message || "Başarılı. Mesajınız başarıyla gönderildi."}
             </div>
           )}
           {isSubmitSuccessful && !isSuccess && (
             <div className="mt-3 text-sm text-center text-red-500">
-              {message || "Something went wrong. Please try later."}
+              {message || "Birşeyler yanlış gitti. Lütfen tekrar deneyin."}
             </div>
           )}
         </div>

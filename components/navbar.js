@@ -17,26 +17,35 @@ export default function Navbar(props) {
       href: "/"
     },
     {
-      label: "Faaliyet Alanlarımız",
-      href: "/about"
-    },
+      label: "Faaliyetlerimiz",
+      href: "#",
+      children: [
+        { title: "Enfa Aile", path: "/faaliyetlerimiz/aile" },
+        { title: "Enfa Genç", path: "/faaliyetlerimiz/genc" },
+        { title: "Enfa Çocuk", path: "/faaliyetlerimiz/cocuk" }
+      ]
+    }
     // {
     //   label: "Contact",
-    //   href: "/contact"
+    //   href: "/iletisim"
     // }
   ];
 
   const rightmenu = [
     {
       label: "Duyuru ve Haberler",
-      href: "/archive"
+      href: "/icerikler"
     },
     {
-      label: "Hakkımızda",
-      href: "/contact",
+      label: "Biz Kimiz",
+      href: "/#",
+      children: [
+        { title: "Hakkımızda", path: "/hakkimizda" },
+        { title: "İletişim", path: "/iletisim" }
+      ],
       // external: true,
       badge: "iletişim"
-    },
+    }
     // {
     //   label: "Download",
     //   href: "https://web3templates.com/templates/stablo-minimal-blog-website-template",
@@ -53,7 +62,8 @@ export default function Navbar(props) {
           {({ open }) => (
             <>
               <div className="flex flex-wrap justify-between md:flex-nowrap md:gap-10">
-                <div className="order-1 hidden w-full flex-col items-center justify-start md:order-none md:flex md:w-auto md:flex-1 md:flex-row md:justify-end">
+                <div
+                  className="order-1 hidden w-full flex-col items-center justify-start md:order-none md:flex md:w-auto md:flex-1 md:flex-row md:justify-end">
                   {leftmenu.map((item, index) => (
                     <Fragment key={`${item.label}${index}`}>
                       {item.children && item.children.length > 0 ? (
@@ -128,7 +138,8 @@ export default function Navbar(props) {
                   </Disclosure.Button>
                 </div>
 
-                <div className="order-2 hidden w-full flex-col items-center justify-start md:order-none md:flex md:w-auto md:flex-1 md:flex-row">
+                <div
+                  className="order-2 hidden w-full flex-col items-center justify-start md:order-none md:flex md:w-auto md:flex-1 md:flex-row">
                   {rightmenu.map((item, index) => (
                     <Fragment key={`${item.label}${index}`}>
                       {item.children && item.children.length > 0 ? (
@@ -146,7 +157,8 @@ export default function Navbar(props) {
                           rel={item.external ? "noopener" : ""}>
                           <span> {item.label}</span>
                           {item.badge && (
-                            <span className="ml-2 rounded bg-blue-100 px-2 py-0.5 text-xs font-semibold text-blue-600 dark:bg-cyan-200 dark:text-blue-800 ">
+                            <span
+                              className="ml-2 rounded bg-blue-100 px-2 py-0.5 text-xs font-semibold text-blue-600 dark:bg-cyan-200 dark:text-blue-800 ">
                               {item.badge}
                             </span>
                           )}

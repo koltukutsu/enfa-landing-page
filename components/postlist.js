@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { cx } from "@/utils/all";
+import { tr } from "date-fns/locale";
 import { urlForImage } from "@/lib/sanity/image";
 import { parseISO, format } from "date-fns";
 import { PhotoIcon } from "@heroicons/react/24/outline";
@@ -140,7 +141,8 @@ export default function PostList({
                 dateTime={post?.publishedAt || post._createdAt}>
                 {format(
                   parseISO(post?.publishedAt || post._createdAt),
-                  "MMMM dd, yyyy"
+                  "MMMM dd, yyyy",
+                  {locale: tr}
                 )}
               </time>
             </div>

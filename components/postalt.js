@@ -4,6 +4,7 @@ import { cx } from "@/utils/all";
 import { urlForImage } from "@/lib/sanity/image";
 import { parseISO, format } from "date-fns";
 import { PhotoIcon } from "@heroicons/react/24/outline";
+import { tr } from "date-fns/locale";
 import CategoryLabel from "@/components/blog/category";
 
 export default function PostAlt({
@@ -66,7 +67,8 @@ export default function PostAlt({
               dateTime={post?.publishedAt || post._createdAt}>
               {format(
                 parseISO(post?.publishedAt || post._createdAt),
-                "MMMM dd, yyyy"
+                "MMMM dd, yyyy",
+                {locale: tr}
               )}
             </time>
           </div>

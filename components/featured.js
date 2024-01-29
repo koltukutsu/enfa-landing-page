@@ -2,6 +2,7 @@ import Image from "next/image";
 import { urlForImage } from "@/lib/sanity/image";
 import { parseISO, format } from "date-fns";
 import { cx } from "@/utils/all";
+import { tr } from "date-fns/locale";
 import Link from "next/link";
 
 export default function Featured({ post, pathPrefix }) {
@@ -81,11 +82,12 @@ export default function Featured({ post, pathPrefix }) {
                         parseISO(
                           post?.publishedAt || post._createdAt
                         ),
-                        "MMMM dd, yyyy"
+                        "MMMM dd, yyyy",
+                        {locale: tr}
                       )}
                     </time>
                     <span className="text-white">
-                      · {post.estReadingTime || "5"} min read
+                      · {post.estReadingTime || "5"} dakika okuma
                     </span>
                   </div>
                 </div>

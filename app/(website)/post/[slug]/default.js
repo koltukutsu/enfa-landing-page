@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { PortableText } from "@/lib/sanity/plugins/portabletext";
 import { urlForImage } from "@/lib/sanity/image";
 import { parseISO, format } from "date-fns";
+import { tr } from "date-fns/locale";
 
 import CategoryLabel from "@/components/blog/category";
 import AuthorCard from "@/components/blog/authorCard";
@@ -65,10 +66,11 @@ export default function Post(props) {
                     dateTime={post?.publishedAt || post._createdAt}>
                     {format(
                       parseISO(post?.publishedAt || post._createdAt),
-                      "MMMM dd, yyyy"
+                      "MMMM dd, yyyy",
+                      {locale: tr}
                     )}
                   </time>
-                  <span>· {post.estReadingTime || "5"} min read</span>
+                  <span>· {post.estReadingTime || "5"} dakika okuma</span>
                 </div>
               </div>
             </div>
@@ -98,7 +100,7 @@ export default function Post(props) {
             <Link
               href="/"
               className="bg-brand-secondary/20 rounded-full px-5 py-2 text-sm text-blue-600 dark:text-blue-500 ">
-              ← View all posts
+              {/*← View all posts*/}
             </Link>
           </div>
           {post.author && <AuthorCard author={post.author} />}
