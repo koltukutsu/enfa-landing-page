@@ -8,8 +8,7 @@ import Link from "next/link";
 import { motion, useAnimation } from "framer-motion";
 
 
-
-export default function FaaliyetlerCommon({title, subsectionData}) {
+export default function FaaliyetlerCommon({ title, subsectionData }) {
   return (
     <Container>
       <h1
@@ -17,7 +16,7 @@ export default function FaaliyetlerCommon({title, subsectionData}) {
         Faailiyetlerimiz
         <span className="text-gray-500 text-brand"> / {title}</span>
       </h1>
-      <div className="text-center">
+      <div className="text-center mb-16">
         <p className="text-sm text-gray-500">ENFA Eğitim ve Kültür Merkezi</p>
       </div>
       {
@@ -92,7 +91,17 @@ const SubSection = ({ imageUrl, title, paragraph, choice }) => {
     </div>
   );
 
-  return (
+  const mobileLayout = (
+    <>
+      <div className="text-center">
+        {textSection}
+        <div className="mb-8"></div>
+        {imageSection}
+      </div>
+    </>
+  );
+
+  const otherLayout = (
     <div className={`flex ${choice === 1 ? "flex-col" : "flex-row"} items-center justify-around mt-48`}>
       {choice === 0 ? (
         <>
@@ -116,4 +125,16 @@ const SubSection = ({ imageUrl, title, paragraph, choice }) => {
       )}
     </div>
   );
+  return (
+    // Responsive design: Use mobile layout for small screens, other layout for larger screens
+    <>
+      <div className="block lg:hidden">
+        {mobileLayout}
+      </div>
+      <div className="hidden lg:block">
+        {otherLayout}
+      </div>
+    </>
+  )
+    ;
 };

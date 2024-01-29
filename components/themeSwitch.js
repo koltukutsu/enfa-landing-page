@@ -1,33 +1,41 @@
-"use client";
+"use client"
 
-import { useTheme } from "next-themes";
-import { SunIcon } from "@heroicons/react/24/outline";
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { MoonIcon, SunIcon } from '@heroicons/react/24/outline';
 
 const ThemeSwitch = () => {
-  //   const [mounted, setMounted] = useState(false);
-  //   const { resolvedTheme, setTheme } = useTheme();
   const { theme, setTheme } = useTheme();
-  // useEffect only runs on the client, so now we can safely show the UI
-  //   useEffect(() => {
-  //     setMounted(true);
-  //   }, []);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
-  //   if (!mounted) {
-  //     return null;
-  //   }
+  useEffect(() => {
+    setIsDarkMode(theme === 'dark');
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(isDarkMode ? 'light' : 'dark');
+  };
+
+  // Animation variants
+  const variants = {
+    initial: { scale: 0 },
+    animate: { scale: 1 },
+    exit: { scale: 0 }
+  };
 
   return (
-    <div className="inline-flex items-center">
-      <SunIcon className="w-4 h-4 mr-2" />
-      <select
-        name="themeSwitch"
-        value={theme}
-        onChange={e => setTheme(e.target.value)}>
-        <option value="system">System</option>
-        <option value="dark">Dark</option>
-        <option value="light">Light</option>
-      </select>
-    </div>
+    <button onClick={toggleTheme} className="flex items-center justify-center p-2">
+      {isDarkMode ? (
+        <motion.div initial="initial" animate="animate" exit="exit" variants={variants}>
+          <SunIcon className="w-6 h-6 text-yellow-500" />
+        </motion.div>
+      ) : (
+        <motion.div initial="initial" animate="animate" exit="exit" variants={variants}>
+          <MoonIcon className="w-6 h-6 text-gray-700" />
+        </motion.div>
+      )}
+    </button>
   );
 };
 

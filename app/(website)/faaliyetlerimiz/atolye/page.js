@@ -32,7 +32,7 @@ const genclerSectionsData = [
 export default async function AboutPage() {
   // const authors = await getAllAuthors();
   // const settings = await getSettings();
-  const title = "Eğitim Atölyesi";
+  const title = "Genç";
   return <FaaliyetlerCommon title={title} subsectionData={genclerSectionsData}/>;
 
 }

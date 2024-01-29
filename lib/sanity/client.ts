@@ -13,6 +13,7 @@ import {
   catpathquery,
   catquery,
   getAll,
+  socialQuery,
   searchquery
 } from "./groq";
 import { createClient } from "next-sanity";
@@ -128,6 +129,13 @@ export async function getPaginatedPosts({ limit, pageIndex = 0 }) {
         limit: limit
       })) || []
     );
+  }
+  return [];
+}
+
+export async function getSocialMediaAccounts() {
+  if (client) {
+    return (await client.fetch(socialQuery)) || [];
   }
   return [];
 }

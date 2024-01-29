@@ -8,9 +8,12 @@ import Image from "next/image";
 import { urlForImage } from "@/lib/sanity/image";
 import cx from "clsx";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
+import { useState } from "react";
 import { myLoader } from "@/utils/all";
 
 export default function Navbar(props) {
+  const [selectedActivity, setSelectedActivity] = useState("Enfa");
+
   const leftmenu = [
     {
       label: "Ana Sayfa",
@@ -19,10 +22,12 @@ export default function Navbar(props) {
     {
       label: "Faaliyetlerimiz",
       href: "#",
+      badge: selectedActivity,
       children: [
         { title: "Enfa Aile", path: "/faaliyetlerimiz/aile" },
         { title: "Enfa Genç", path: "/faaliyetlerimiz/genc" },
-        { title: "Enfa Çocuk", path: "/faaliyetlerimiz/cocuk" }
+        { title: "Enfa Çocuk", path: "/faaliyetlerimiz/cocuk" },
+        { title: "Eğitim Atölyesi", path: "/faaliyetlerimiz/atolye" }
       ]
     }
     // {
@@ -39,12 +44,12 @@ export default function Navbar(props) {
     {
       label: "Biz Kimiz",
       href: "/#",
+      badge: "İletişim",
       children: [
         { title: "Hakkımızda", path: "/hakkimizda" },
         { title: "İletişim", path: "/iletisim" }
-      ],
+      ]
       // external: true,
-      badge: "iletişim"
     }
     // {
     //   label: "Download",
@@ -71,6 +76,7 @@ export default function Navbar(props) {
                           menu={item}
                           key={`${item.label}${index}`}
                           items={item.children}
+                          selectBadge={setSelectedActivity}
                         />
                       ) : (
                         <Link
@@ -147,6 +153,8 @@ export default function Navbar(props) {
                           menu={item}
                           key={`${item.label}${index}`}
                           items={item.children}
+                          selectBadge={setSelectedActivity}
+
                         />
                       ) : (
                         <Link
@@ -177,7 +185,8 @@ export default function Navbar(props) {
                           menu={item}
                           key={`${item.label}${index}`}
                           items={item.children}
-                          mobile={true}
+                          mobile={true} selectBadge={setSelectedActivity}
+
                         />
                       ) : (
                         <Link
@@ -186,7 +195,8 @@ export default function Navbar(props) {
                           className="w-full px-5 py-2 text-sm font-medium text-gray-600 hover:text-blue-500 dark:text-gray-400"
                           target={item.external ? "_blank" : ""}
                           rel={item.external ? "noopener" : ""}>
-                          {item.label}
+                          {item.label}ads
+
                         </Link>
                       )}
                     </Fragment>
@@ -201,7 +211,7 @@ export default function Navbar(props) {
   );
 }
 
-const DropdownMenu = ({ menu, items, mobile }) => {
+const DropdownMenu = ({ menu, items, mobile, selectBadge }) => {
   return (
     <Menu
       as="div"
@@ -217,6 +227,18 @@ const DropdownMenu = ({ menu, items, mobile }) => {
               mobile ? "w-full px-4 py-2 " : "inline-block px-4 py-2"
             )}>
             <span>{menu.label}</span>
+            {
+              menu.badge && menu.title ==="Faaliyetlerimiz" ?(
+                <span
+                  className="ml-2 rounded bg-blue-100 px-2 py-0.5 text-xs font-semibold text-blue-600 dark:bg-cyan-200 dark:text-blue-800 ">
+                  {menu.badge}
+                </span>
+              ):
+                (<span
+                  className="ml-2 rounded bg-blue-100 px-2 py-0.5 text-xs font-semibold text-blue-600 dark:bg-cyan-200 dark:text-blue-800 ">
+                  {menu.badge}
+                </span>)
+            }
             <ChevronDownIcon className="mt-0.5 h-4 w-4" />
           </Menu.Button>
           <Transition
@@ -235,18 +257,24 @@ const DropdownMenu = ({ menu, items, mobile }) => {
               <div className={cx(!mobile && "py-3")}>
                 {items.map((item, index) => (
                   <Menu.Item as="div" key={`${item.title}${index}`}>
-                    {({ active }) => (
-                      <Link
-                        href={item?.path ? item.path : "#"}
-                        className={cx(
-                          "flex items-center space-x-2 px-5 py-2 text-sm lg:space-x-4",
-                          active
-                            ? "text-blue-500"
-                            : "text-gray-700 hover:text-blue-500 focus:text-blue-500 dark:text-gray-300"
-                        )}>
-                        <span> {item.title}</span>
-                      </Link>
-                    )}
+                    {({ active }) => {
+                      return (
+                        <Link
+                          href={item?.path ? item.path : "#"}
+                          className={cx(
+                            "flex items-center space-x-2 px-5 py-2 text-sm lg:space-x-4",
+                            active
+                              ? "text-blue-500"
+                              : "text-gray-700 hover:text-blue-500 focus:text-blue-500 dark:text-gray-300"
+                          )}
+                          onClick={() => {
+                            selectBadge(item.title);
+                          }}
+                        >
+                          <span> {item.title}</span>
+                        </Link>
+                      );
+                    }}
                   </Menu.Item>
                 ))}
               </div>

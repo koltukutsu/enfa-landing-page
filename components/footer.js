@@ -2,15 +2,25 @@ import Container from "@/components/container";
 import ThemeSwitch from "@/components/themeSwitch";
 import Image from "next/image";
 import { myLoader } from "@/utils/all";
+import { MoonIcon, SunIcon } from '@heroicons/react/24/outline';
 import VercelLogo from "../public/img/vercel.svg";
+import { FaTwitter, FaInstagram, FaFacebook, FaLinkedin } from 'react-icons/fa';
+import { getSocialMediaAccounts } from "@/lib/sanity/client";
 
-export default function Footer(props) {
+export default async function Footer(props) {
+  const data = await getSocialMediaAccounts();
+  const social = data.social;
+
+  console.log("Control Social Medias: ",);
   return (
     <Container className="mt-10 border-t border-gray-100 dark:border-gray-800">
       <div className="text-center text-sm">
-        Copyright © {new Date().getFullYear()} {props?.copyright}. Tum
-        haklari saklidir.
+        Enfa Eğitim ve Kültür Merkezi tarafından geliştirilmiştir.
       </div>
+      <div className="text-center text-sm">
+        Copyright © {new Date().getFullYear()} {props?.copyright}. Tüm hakları saklıdır.
+      </div>
+
       {/*<div className="mt-1 flex justify-center gap-1 text-center text-sm text-gray-500 dark:text-gray-600">*/}
       {/*  <span>*/}
       {/*    {" "}*/}
@@ -53,6 +63,20 @@ export default function Footer(props) {
         {/*    />*/}
         {/*  </a>*/}
         {/*</div>*/}
+        <div className="mt-2 flex items-center justify-center">
+        {
+          social.map((item, index) => (
+            <a
+              key={index}
+              href={item.url}
+              target="_blank"
+              rel="noopener"
+              className="text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300 mx-2">
+              <Social name={item.media} />
+            </a>
+          ))
+        }
+        </div>
         <ThemeSwitch />
       </div>
       {/*<Backlink />*/}
@@ -90,3 +114,18 @@ const Backlink = () => {
     </a>
   );
 };
+
+const Social = ({ name }) => {
+  switch (name) {
+    case 'twitter':
+      return <FaTwitter className="w-5 h-5" />;
+    case 'instagram':
+      return <FaInstagram className="w-5 h-5" />;
+    case 'facebook':
+      return <FaFacebook className="w-5 h-5" />;
+    case 'linkedin':
+      return <FaLinkedin className="w-5 h-5" />;
+    default:
+      return <FaTwitter className="w-5 h-5" />;
+  }
+}

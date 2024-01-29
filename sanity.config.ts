@@ -21,7 +21,7 @@ console.log(projectId);
 
 export default defineConfig({
   name: "default",
-  title: "Enfa Editor",
+  title: "Enfa İçerik Editörü",
   basePath: "/studio",
   projectId: projectId,
   dataset: dataset,
