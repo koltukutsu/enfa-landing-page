@@ -29,12 +29,12 @@ export default function Navbar(props) {
         { title: "Enfa Çocuk", path: "/faaliyetlerimiz/cocuk" },
         { title: "Enfa Cafe", path: "/faaliyetlerimiz/cafe" }
       ]
-    },
-    {
-      label: "Atölyemiz",
-      href: "/yetkinlik-atolyesi"
-    
     }
+    // {
+    //   label: "Atölyemiz",
+    //   href: "/yetkinlik-atolyesi"
+    
+    // }
     // {
     //   label: "Contact",
     //   href: "/iletisim"
