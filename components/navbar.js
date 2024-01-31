@@ -43,7 +43,7 @@ export default function Navbar(props) {
 
   const rightmenu = [
     {
-      label: "Duyuru ve Haberlerimiz",
+      label: "Haberler",
       href: "/icerikler"
     },
     {
