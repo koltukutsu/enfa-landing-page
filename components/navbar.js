@@ -27,8 +27,13 @@ export default function Navbar(props) {
         { title: "Enfa Aile", path: "/faaliyetlerimiz/aile" },
         { title: "Enfa Genç", path: "/faaliyetlerimiz/genc" },
         { title: "Enfa Çocuk", path: "/faaliyetlerimiz/cocuk" },
-        { title: "Eğitim Atölyesi", path: "/faaliyetlerimiz/atolye" }
+        { title: "Enfa Cafe", path: "/faaliyetlerimiz/cafe" }
       ]
+    },
+    {
+      label: "Yetkinlik Atölyesi",
+      href: "/"
+    
     }
     // {
     //   label: "Contact",

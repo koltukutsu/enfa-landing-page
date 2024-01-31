@@ -32,7 +32,7 @@ const genclerSectionsData = [
 export default async function AboutPage() {
   // const authors = await getAllAuthors();
   // const settings = await getSettings();
-  const title = "Genç";
+  const title = "Enfa Cafe";
   return <FaaliyetlerCommon title={title} subsectionData={genclerSectionsData}/>;
 
 }
