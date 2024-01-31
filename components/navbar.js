@@ -29,11 +29,6 @@ export default function Navbar(props) {
         { title: "Enfa Çocuk", path: "/faaliyetlerimiz/cocuk" },
         { title: "Enfa Cafe", path: "/faaliyetlerimiz/cafe" }
       ]
-    },
-    {
-      label: "Yetkinlik Atölyesi",
-      href: "/"
-    
     }
     // {
     //   label: "Contact",
@@ -43,8 +38,13 @@ export default function Navbar(props) {
 
   const rightmenu = [
     {
-      label: "Haberler",
+      label: "Duyuru ve Haberlerimiz",
       href: "/icerikler"
+    },
+    {
+      label: "Yetkinlik Atölyesi",
+      href: "/yetkinlik-atolyesi"
+    
     },
     {
       label: "Biz Kimiz",
