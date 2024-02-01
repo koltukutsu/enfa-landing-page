@@ -126,6 +126,8 @@ const Banner = ({imgSrc, imgAlt, title, subtitle,}) => {
 }
 
 const EnfaTouchSlider = ({givenImages, givenText, textLeft = true}) => {
+    const isMobile = useMediaQuery({query: '(max-width: 768px)'});
+
     if (textLeft) {
         return (
             // TODO: side it the text to the right
@@ -135,7 +137,7 @@ const EnfaTouchSlider = ({givenImages, givenText, textLeft = true}) => {
                     effect={'cards'}
                     grabCursor={true}
                     modules={[EffectCards, Pagination, Autoplay]}
-                    className='col-span-2 h-96 sm:h-48 md:h-48 w-full rounded-lg'
+                    className={`col-span-2 ${isMobile?"h-48": "h-96"} h-96 w-full rounded-lg`}
                     pagination={{type: 'bullets'}}
                     autoplay={{delay: 2500}}
                     lazyPreloadPrevNext={true}
@@ -166,7 +168,7 @@ const EnfaTouchSlider = ({givenImages, givenText, textLeft = true}) => {
                     effect={'cards'}
                     grabCursor={true}
                     modules={[EffectCards, Pagination, Autoplay]}
-                    className='col-span-2 h-96 sm:h-64 md:h-64 w-full rounded-lg'
+                    className={`col-span-2 ${isMobile?"h-48": "h-96"} h-96 w-full rounded-lg`}
                     pagination={{type: 'bullets'}}
                     autoplay={{delay: 2250}}
                     lazyPreloadPrevNext={true}
