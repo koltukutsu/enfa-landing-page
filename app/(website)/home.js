@@ -2,11 +2,11 @@
 // import Link from "next/link";
 // import Container from "@/components/container";
 import PostList from "@/components/postlist";
-import { images } from '@/lib/images'
-import { useMediaQuery } from 'react-responsive';
+import {images, cafeImages, academyImages} from '@/lib/images'
+import {useMediaQuery} from 'react-responsive';
 
 import {Swiper, SwiperSlide} from "swiper/react";
-import {A11y, Navigation, Pagination, Autoplay, Parallax, Scrollbar, EffectFade} from "swiper/modules";
+import {A11y, Navigation, Pagination, Autoplay, Parallax, Scrollbar, EffectFade, EffectCards} from "swiper/modules";
 import Container from "@/components/container";
 import Link from "next/link";
 import Image from "next/image";
@@ -16,6 +16,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/react';
 import 'swiper/css';
+
 export default function Post({posts}) {
     return (
         <>
@@ -39,15 +40,18 @@ export default function Post({posts}) {
 
             {/*  </Container>*/}
             {/*)}*/}
-            <Container >
-                <ActiveSlider/>
+            <Container>
+                <EnfaInformationSlider/>
+
+                <EnfaTouchSlider givenImages={cafeImages} givenText={"Enfa Cafe ile Sicak Bir Hizmet..."} textLeft={true}/>
+                <EnfaTouchSlider givenImages={academyImages} givenText={"Yetkinlik Atolyeleri..."} textLeft={false}/>
             </Container>
         </>
     );
 }
 
-const ActiveSlider = () => {
-    const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+const EnfaInformationSlider = () => {
+    const isMobile = useMediaQuery({query: '(max-width: 768px)'});
     //
     // if (isMobile) {
     //     return <SpecialComponent />;
@@ -83,6 +87,8 @@ const ActiveSlider = () => {
         </section>
     );
 }
+
+
 const Banner = ({imgSrc, imgAlt, title, subtitle,}) => {
     // this banner is for ActiveSlider
     // on a full image, there is a text
@@ -101,11 +107,70 @@ const Banner = ({imgSrc, imgAlt, title, subtitle,}) => {
                     />
                 </div>
                 <div className='flex flex-col items-center justify-center rounded-tl-xl md:col-span-2'>
-                    <h1 className='mt-2 mb-3 text-3xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl dark:text-white'>Başlık 1</h1>
+                    <h1 className='mt-2 mb-3 text-3xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl dark:text-white'>Başlık
+                        1</h1>
                     <p className='text-lg text-center'>Alt Metin Açıklama ve kısa ve net....</p>
                     {/*<button className='px-4 py-2 bg-blue-500 text-white rounded'>Your Button</button>*/}
                 </div>
             </div>
         </>
     );
+}
+
+const EnfaTouchSlider = ({givenImages, givenText, textLeft = true}) => {
+    if (textLeft) {
+        return (
+            <div className="grid grid-cols-5 h-full w-4/5">
+                <h3 className='relative col-span-3 mr-4 mt-2 mb-3 text-xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-2xl dark:text-white'>{givenText}</h3>
+                <Swiper
+                    effect={'cards'}
+                    grabCursor={true}
+                    modules={[EffectCards]}
+                    className='col-span-2 h-64 w-full rounded-lg'
+                >
+                    {
+                        givenImages.map((imageData, index) => (
+                            <SwiperSlide key={index}>
+                                <div className='flex'>
+                                    <Image
+                                        src={imageData.src}
+                                        alt={imageData.imgAlt}
+                                        layout='fill'
+                                        className='block h-full w-2/5 object-cover rounded-r-xl'
+                                    />
+                                </div>
+                            </SwiperSlide>
+                        ))
+                    }
+                </Swiper>
+            </div>)
+    } else {
+        return (
+            <div className="grid grid-cols-5 h-full w-4/5">
+                <Swiper
+                    effect={'cards'}
+                    grabCursor={true}
+                    modules={[EffectCards]}
+                    className='col-span-2 h-64 w-full rounded-lg'
+                >
+                    {
+                        givenImages.map((imageData, index) => (
+                            <SwiperSlide key={index}>
+                                <div className='flex'>
+                                    <Image
+                                        src={imageData.src}
+                                        alt={imageData.imgAlt}
+                                        layout='fill'
+                                        className='block h-full w-2/5 object-cover rounded-r-xl'
+                                    />
+                                </div>
+                            </SwiperSlide>
+                        ))
+                    }
+                </Swiper>
+                <h3 className='relative col-span-3 ml-4 mt-2 mb-3 text-xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-2xl dark:text-white'>{givenText}</h3>
+            </div>)
+    }
+
+
 }
