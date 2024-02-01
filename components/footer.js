@@ -11,7 +11,7 @@ export default async function Footer(props) {
   const data = await getSocialMediaAccounts();
   const social = data.social;
 
-  console.log("Control Social Medias: ",);
+  // console.log("Control Social Medias: ",);
   return (
     <Container className="mt-10 border-t border-gray-100 dark:border-gray-800">
       <div className="text-center text-sm">
