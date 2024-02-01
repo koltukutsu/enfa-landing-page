@@ -42,8 +42,14 @@ export default function Post({posts}) {
             {/*)}*/}
             <Container>
                 <EnfaInformationSlider/>
-
-                <EnfaTouchSlider givenImages={cafeImages} givenText={"Enfa Cafe ile Sicak Bir Hizmet..."} textLeft={true}/>
+                <div
+                    className="mt-16"
+                ></div>
+                <EnfaTouchSlider givenImages={cafeImages} givenText={"Enfa Cafe ile Sicak Bir Hizmet..."}
+                                 textLeft={true}/>
+                <div
+                    className="mt-16 mb-16"
+                ></div>
                 <EnfaTouchSlider givenImages={academyImages} givenText={"Yetkinlik Atolyeleri..."} textLeft={false}/>
             </Container>
         </>
@@ -121,12 +127,12 @@ const EnfaTouchSlider = ({givenImages, givenText, textLeft = true}) => {
     if (textLeft) {
         return (
             <div className="grid grid-cols-5 h-full w-4/5">
-                <h3 className='relative col-span-3 mr-4 mt-2 mb-3 text-xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-2xl dark:text-white'>{givenText}</h3>
+                <h3 className='relative col-span-3 mr-4 mt-2 mb-3 text-2xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl dark:text-white'>{givenText}</h3>
                 <Swiper
                     effect={'cards'}
                     grabCursor={true}
                     modules={[EffectCards]}
-                    className='col-span-2 h-64 w-full rounded-lg'
+                    className='col-span-2 h-96 w-full rounded-lg'
                 >
                     {
                         givenImages.map((imageData, index) => (
@@ -151,7 +157,7 @@ const EnfaTouchSlider = ({givenImages, givenText, textLeft = true}) => {
                     effect={'cards'}
                     grabCursor={true}
                     modules={[EffectCards]}
-                    className='col-span-2 h-64 w-full rounded-lg'
+                    className='col-span-2 h-96 w-full rounded-lg'
                 >
                     {
                         givenImages.map((imageData, index) => (
@@ -168,7 +174,7 @@ const EnfaTouchSlider = ({givenImages, givenText, textLeft = true}) => {
                         ))
                     }
                 </Swiper>
-                <h3 className='relative col-span-3 ml-4 mt-2 mb-3 text-xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-2xl dark:text-white'>{givenText}</h3>
+                <h3 className='relative col-span-3 ml-4 mt-2 mb-3 text-2xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl dark:text-white'>{givenText}</h3>
             </div>)
     }
 
