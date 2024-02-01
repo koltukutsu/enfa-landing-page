@@ -150,7 +150,7 @@ const EnfaTouchSlider = ({givenImages, givenText, textLeft = true}) => {
                                         src={imageData.src}
                                         alt={imageData.imgAlt}
                                         layout='fill'
-                                        className='block h-full w-2/5 object-cover rounded-xl'
+                                        className='block h-full w-full object-cover rounded-xl'
                                     />
                                 </div>
                             </SwiperSlide>
@@ -182,7 +182,7 @@ const EnfaTouchSlider = ({givenImages, givenText, textLeft = true}) => {
                                         alt={imageData.imgAlt}
                                         layout='fill'
 
-                                        className='block h-full w-2/5 object-cover rounded-xl'
+                                        className='block h-full w-full object-cover rounded-xl'
                                     />
                                 </div>
                             </SwiperSlide>
