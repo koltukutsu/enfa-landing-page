@@ -67,18 +67,20 @@ const EnfaInformationSlider = () => {
         <section className='py-12'>
             <div className='container relative'>
                 <Swiper
-                    pagination={{type: 'bullets'}}
                     modules={[Navigation, Pagination, Autoplay, EffectFade]}
                     onSwiper={swiper => console.log(swiper)}
                     className='h-96 w-full rounded-lg'
+                    pagination={{type: 'bullets'}}
                     autoplay={{delay: 2500}}
+                    lazyPreloadPrevNext={true}
+                    lazyPreloadPrevNextAmount={3}
                     spaceBetween={15}
                     crossFade={true}
                     fadeEffect={{crossFade: true}}
                     speed={3000}
                     effect='fade'
-                    lazyPreloadPrevNext={true}
-                    lazyPreloadPrevNextAmount={3}
+                    grabCursor={true}
+                    loop={true}
                     // ref={swiperRef}
                 >
                     {images.map((image, index) => (
@@ -126,13 +128,19 @@ const Banner = ({imgSrc, imgAlt, title, subtitle,}) => {
 const EnfaTouchSlider = ({givenImages, givenText, textLeft = true}) => {
     if (textLeft) {
         return (
-            <div className="grid grid-cols-5 h-full w-4/5">
+            // TODO: side it the text to the right
+            <div className="grid grid-cols-5 h-full ">
                 <h3 className='relative col-span-3 mr-4 mt-2 mb-3 text-2xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl dark:text-white'>{givenText}</h3>
                 <Swiper
                     effect={'cards'}
                     grabCursor={true}
-                    modules={[EffectCards]}
+                    modules={[EffectCards, Pagination, Autoplay]}
                     className='col-span-2 h-96 w-full rounded-lg'
+                    pagination={{type: 'bullets'}}
+                    autoplay={{delay: 2500}}
+                    lazyPreloadPrevNext={true}
+                    lazyPreloadPrevNextAmount={3}
+                    loop={true}
                 >
                     {
                         givenImages.map((imageData, index) => (
@@ -142,7 +150,7 @@ const EnfaTouchSlider = ({givenImages, givenText, textLeft = true}) => {
                                         src={imageData.src}
                                         alt={imageData.imgAlt}
                                         layout='fill'
-                                        className='block h-full w-2/5 object-cover rounded-r-xl'
+                                        className='block h-full w-2/5 object-cover rounded-xl'
                                     />
                                 </div>
                             </SwiperSlide>
@@ -152,12 +160,18 @@ const EnfaTouchSlider = ({givenImages, givenText, textLeft = true}) => {
             </div>)
     } else {
         return (
-            <div className="grid grid-cols-5 h-full w-4/5">
+            // TODO: side the text to the left
+            <div className="grid grid-cols-5 h-full w-full">
                 <Swiper
                     effect={'cards'}
                     grabCursor={true}
-                    modules={[EffectCards]}
+                    modules={[EffectCards, Pagination, Autoplay]}
                     className='col-span-2 h-96 w-full rounded-lg'
+                    pagination={{type: 'bullets'}}
+                    autoplay={{delay: 2500}}
+                    lazyPreloadPrevNext={true}
+                    lazyPreloadPrevNextAmount={3}
+                    loop={true}
                 >
                     {
                         givenImages.map((imageData, index) => (
@@ -167,7 +181,8 @@ const EnfaTouchSlider = ({givenImages, givenText, textLeft = true}) => {
                                         src={imageData.src}
                                         alt={imageData.imgAlt}
                                         layout='fill'
-                                        className='block h-full w-2/5 object-cover rounded-r-xl'
+
+                                        className='block h-full w-2/5 object-cover rounded-xl'
                                     />
                                 </div>
                             </SwiperSlide>
