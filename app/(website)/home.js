@@ -71,7 +71,7 @@ const EnfaInformationSlider = () => {
                     onSwiper={swiper => console.log(swiper)}
                     className='h-96 w-full rounded-lg'
                     pagination={{type: 'bullets'}}
-                    autoplay={{delay: 2500}}
+                    autoplay={{delay: 2750}}
                     lazyPreloadPrevNext={true}
                     lazyPreloadPrevNextAmount={3}
                     spaceBetween={15}
@@ -135,7 +135,7 @@ const EnfaTouchSlider = ({givenImages, givenText, textLeft = true}) => {
                     effect={'cards'}
                     grabCursor={true}
                     modules={[EffectCards, Pagination, Autoplay]}
-                    className='col-span-2 h-96 w-full rounded-lg'
+                    className='col-span-2 h-96 sm:h-48 md:h-48 w-full rounded-lg'
                     pagination={{type: 'bullets'}}
                     autoplay={{delay: 2500}}
                     lazyPreloadPrevNext={true}
@@ -166,9 +166,9 @@ const EnfaTouchSlider = ({givenImages, givenText, textLeft = true}) => {
                     effect={'cards'}
                     grabCursor={true}
                     modules={[EffectCards, Pagination, Autoplay]}
-                    className='col-span-2 h-96 w-full rounded-lg'
+                    className='col-span-2 h-96 sm:h-64 md:h-64 w-full rounded-lg'
                     pagination={{type: 'bullets'}}
-                    autoplay={{delay: 2500}}
+                    autoplay={{delay: 2250}}
                     lazyPreloadPrevNext={true}
                     lazyPreloadPrevNextAmount={3}
                     loop={true}
