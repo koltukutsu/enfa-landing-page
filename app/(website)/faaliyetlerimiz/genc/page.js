@@ -1,5 +1,5 @@
 // import Genc from "./genc";
-import FaaliyetlerCommon from "../faaliyetlerCommon";
+import FaaliyetlerCommon from "../../../../components/faaliyetlerCommon";
 const genclerSectionsData = [
   {
     imageUrl: "/pictures/faaliyetlerimiz/aile/family.jpg",

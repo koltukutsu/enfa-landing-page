@@ -1,6 +1,6 @@
 import { getAllAuthors, getSettings } from "@/lib/sanity/client";
 // import Cocuk from "./cocuk";
-import FaaliyetlerCommon from "../faaliyetlerCommon";
+import FaaliyetlerCommon from "../../../../components/faaliyetlerCommon";
 
 const cocuklarSectionsData = [
   {

@@ -1,6 +1,6 @@
 import { getAllAuthors, getSettings } from "@/lib/sanity/client";
 // import Genc from "./genc";
-import FaaliyetlerCommon from "../faaliyetlerimiz/faaliyetlerCommon";
+import FaaliyetlerCommon from "../../../components/faaliyetlerCommon";
 const genclerSectionsData = [
   {
     imageUrl: "/pictures/faaliyetlerimiz/aile/family.jpg",

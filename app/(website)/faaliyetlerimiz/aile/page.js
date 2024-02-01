@@ -1,5 +1,5 @@
 import { getAllAuthors, getSettings } from "@/lib/sanity/client";
-import FaaliyetlerCommon from "../faaliyetlerCommon";
+import FaaliyetlerCommon from "../../../../components/faaliyetlerCommon";
 
 const ailelerSectionsData = [
   {
