@@ -94,9 +94,9 @@ const SubSection = ({ imageUrl, title, paragraph, choice }) => {
   const mobileLayout = (
     <>
       <div className="text-center">
-        {textSection}
+      {imageSection}
         <div className="mb-8"></div>
-        {imageSection}
+        {textSection}
       </div>
     </>
   );
@@ -111,9 +111,9 @@ const SubSection = ({ imageUrl, title, paragraph, choice }) => {
       ) : choice === 1 ? (
         <>
           <div className="text-center">
-            {textSection}
+          {imageSection}
             <div className="mb-8"></div>
-            {imageSection}
+            {textSection}
           </div>
         </>
 
