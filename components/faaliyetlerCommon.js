@@ -21,15 +21,18 @@ export default function FaaliyetlerCommon({ title, subsectionData }) {
       </div>
       {
         subsectionData.map((data, index) => {
-          return (
-            <SubSection
-              key={index}
-              imageUrl={data.imageUrl}
-              title={data.title}
-              paragraph={data.paragraph}
-              choice={index % 3}
-            />
-          );
+            return (
+                <>
+                    <SubSection
+                        key={index}
+                        imageUrl={data.imageUrl}
+                        title={data.title}
+                        paragraph={data.paragraph}
+                        choice={index % 3}
+                    />
+                    {index !== (subsectionData.length - 1) && <div className="bg-gray-300 h-px my-4"></div>}
+                </>
+            );
         })
       }
       <div className="prose mx-auto mt-14 text-center dark:prose-invert">
@@ -70,10 +73,10 @@ const SubSection = ({ imageUrl, title, paragraph, choice }) => {
       initial="hidden"
       transition={{ duration: 0.5 }}
       variants={variants}
-      className={`w-full ${choice !== 1 ? "lg:w-2/3" : ""} p-4`}
+      className={`w-full ${choice !== 1 ? "lg:w-4/7" : ""} p-4`}
     >
       <Image
-        className="rounded-lg shadow-md"
+        className="rounded-lg shadow-md shadow-lg"
         src={imageUrl}
         alt="Description of the image"
         width={500}
@@ -85,7 +88,7 @@ const SubSection = ({ imageUrl, title, paragraph, choice }) => {
   );
 
   const textSection = (
-    <div className={`w-full ${choice !== 1 ? "lg:w-1/3 text-left" : "text-center"} px-4`}>
+    <div className={`w-full ${choice !== 1 ? "lg:w-3/7 text-left" : "text-center"} px-4`}>
       <h2 className="text-2xl font-semibold mb-4">{title}</h2>
       <p>{paragraph}</p>
     </div>

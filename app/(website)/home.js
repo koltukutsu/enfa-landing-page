@@ -67,7 +67,7 @@ const EnfaInformationSlider = () => {
         <section className='py-12'>
             <div className='container relative'>
                 <Swiper
-                    modules={[Navigation, Pagination, Autoplay, EffectFade]}
+                    modules={[Navigation, Autoplay, EffectFade]}
                     onSwiper={swiper => console.log(swiper)}
                     className='h-96 w-full rounded-lg'
                     pagination={{type: 'bullets'}}
@@ -85,7 +85,7 @@ const EnfaInformationSlider = () => {
                 >
                     {images.map((image, index) => (
                         <SwiperSlide key={index}>
-                            <Banner imgSrc={image.src} imgAlt={image.alt}/>
+                            <Banner imgSrc={image.src} imgAlt={image.alt} title={`Başlık ${index}`}/>
                         </SwiperSlide>
                     ))}
                 </Swiper>
@@ -111,12 +111,12 @@ const Banner = ({imgSrc, imgAlt, title, subtitle,}) => {
                         alt={imgAlt}
                         layout='fill'
 
-                        className='block h-full w-full object-cover rounded-r-xl'
+                        className='block h-full w-full object-cover rounded-r-xl drop-shadow-lg'
                     />
                 </div>
                 <div className='flex flex-col items-center justify-center rounded-tl-xl md:col-span-2'>
-                    <h1 className='mt-2 mb-3 text-3xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl dark:text-white'>Başlık
-                        1</h1>
+                    <h1 className='mt-2 mb-3 text-3xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl dark:text-white'>
+                        {title}</h1>
                     <p className='text-lg text-center'>Alt Metin Açıklama ve kısa ve net....</p>
                     {/*<button className='px-4 py-2 bg-blue-500 text-white rounded'>Your Button</button>*/}
                 </div>
@@ -127,7 +127,7 @@ const Banner = ({imgSrc, imgAlt, title, subtitle,}) => {
 
 const EnfaTouchSlider = ({givenImages, givenText, textLeft = true}) => {
     const isMobile = useMediaQuery({query: '(max-width: 768px)'});
-
+    console.log("IS MOBILE", isMobile);
     if (textLeft) {
         return (
             // TODO: side it the text to the right
@@ -137,7 +137,7 @@ const EnfaTouchSlider = ({givenImages, givenText, textLeft = true}) => {
                     effect={'cards'}
                     grabCursor={true}
                     modules={[EffectCards, Pagination, Autoplay]}
-                    className={`col-span-2 ${isMobile?"h-48": "h-96"} h-96 w-full rounded-lg`}
+                    className={`col-span-2 ${isMobile?"h-48": "h-96"} w-full rounded-lg `}
                     pagination={{type: 'bullets'}}
                     autoplay={{delay: 2500}}
                     lazyPreloadPrevNext={true}
@@ -152,7 +152,7 @@ const EnfaTouchSlider = ({givenImages, givenText, textLeft = true}) => {
                                         src={imageData.src}
                                         alt={imageData.imgAlt}
                                         layout='fill'
-                                        className='block h-full w-full object-cover rounded-xl'
+                                        className='block h-full w-full object-cover rounded-xl drop-shadow-lg'
                                     />
                                 </div>
                             </SwiperSlide>
@@ -168,7 +168,7 @@ const EnfaTouchSlider = ({givenImages, givenText, textLeft = true}) => {
                     effect={'cards'}
                     grabCursor={true}
                     modules={[EffectCards, Pagination, Autoplay]}
-                    className={`col-span-2 ${isMobile?"h-48": "h-96"} h-96 w-full rounded-lg`}
+                    className={`col-span-2 ${isMobile?"h-48": "h-96"} w-full rounded-lg `}
                     pagination={{type: 'bullets'}}
                     autoplay={{delay: 2250}}
                     lazyPreloadPrevNext={true}
@@ -184,7 +184,7 @@ const EnfaTouchSlider = ({givenImages, givenText, textLeft = true}) => {
                                         alt={imageData.imgAlt}
                                         layout='fill'
 
-                                        className='block h-full w-full object-cover rounded-xl'
+                                        className='block h-full w-full object-cover rounded-xl drop-shadow-lg'
                                     />
                                 </div>
                             </SwiperSlide>
